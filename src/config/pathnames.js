@@ -1,5 +1,5 @@
 export const PATHNAMES = {
-  HOME: "/home",
+  HOME: "/",
   REACT: "/react",
   VUE: "/vue",
   ANGULAR: "/angular",
