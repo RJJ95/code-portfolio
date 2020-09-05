@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
-import { Row } from "../../primitives/row";
+import { Column } from "../../primitives/column";
 
-export const SideNavContainer = styled(Row)``;
+export const SideNavContainer = styled(Column)`
+  background-color: ${(props) => props.theme.colors.lightGrey};
+  position: fixed;
+  height: 100vh;
+  width: 200px;
+`;
 
 export const SideNavHeader = styled.div``;
