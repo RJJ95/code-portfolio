@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const Home = ({}) => {
-    return ( 
-        <>
+import SideNav from "../../components/constructs/side-nav";
 
-        </> 
-     );
-}
- 
+const Home = () => {
+  return <SideNav />;
+};
+
 export default Home;
