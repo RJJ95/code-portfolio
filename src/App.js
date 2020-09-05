@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Pages
 import Home from "./pages/home";
+import ReactPage  from "./pages/react";
 
 // Components
 import Layout from "./components/constructs/layout";
@@ -15,13 +16,13 @@ export default function App() {
     <Router>
       <Layout>
         <Switch>
-          <Route path={PATHNAMES.HOME}>
+          <Route exact path={PATHNAMES.HOME}>
             <Home />
           </Route>
-          {/* <Route path={PATHNAMES.REACT}>
-          <React />
+          <Route exact path={PATHNAMES.REACT}>
+          <ReactPage />
         </Route>
-        <Route path={PATHNAMES.VUE}>
+        {/* <Route path={PATHNAMES.VUE}>
           <Vue />
         </Route>
         <Route path={PATHNAMES.ANGULAR}>

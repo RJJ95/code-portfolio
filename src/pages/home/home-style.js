@@ -1,5 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Column = styled.div`
-  
+import { Row } from "../../components/primitives/row";
+
+export const HomeContainer = styled(Row)`
+    height: 100vh;
 `;
