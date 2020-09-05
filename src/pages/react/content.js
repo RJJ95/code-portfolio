@@ -1,29 +1,16 @@
-import {REACT_SUBMENUPATHS} from "../../config/pathnames"
+import { REACT_SUBMENUPATHS } from "../../config/pathnames";
 
-export const ReactSubMenu = [
+export const ReactSubMenuContent = [
   {
     label: "Routing",
     items: [
       {
-        item: "React Router",
+        text: "React Router",
         path: REACT_SUBMENUPATHS.REACT_ROUTER,
       },
       {
-        item: "Reach Router",
+        text: "Reach Router",
         path: REACT_SUBMENUPATHS.REACH_ROUTER,
-      },
-    ],
-  },
-  {
-    label: "Styling",
-    items: [
-      {
-        item: "Styled components",
-        path: REACT_SUBMENUPATHS.STYLED_COMPONENTS,
-      },
-      {
-        item: "Sass",
-        path: REACT_SUBMENUPATHS.SASS,
       },
     ],
   },
@@ -31,12 +18,29 @@ export const ReactSubMenu = [
     label: "Components",
     items: [
       {
-        item: "Forms",
+        text: "Forms",
         path: REACT_SUBMENUPATHS.FORMS,
       },
       {
-        item: "Private Route",
+        text: "Private Route",
         path: REACT_SUBMENUPATHS.PRIVATE_ROUTE,
+      },
+      {
+        text: "Page",
+        path: REACT_SUBMENUPATHS.PAGE,
+      },
+    ],
+  },
+  {
+    label: "Styling",
+    items: [
+      {
+        text: "Styled components",
+        path: REACT_SUBMENUPATHS.STYLED_COMPONENTS,
+      },
+      {
+        text: "Sass",
+        path: REACT_SUBMENUPATHS.SASS,
       },
     ],
   },

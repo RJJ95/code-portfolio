@@ -8,11 +8,16 @@ const SubMenuItemContainer = styled(Link)`
   height: 125px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.mediumGrey};
+  color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 100px;
 `;
 
 const SubMenuItem = ({ path, text }) => {
   return (
-    <SubMenuItemContainer path={path}>
+    <SubMenuItemContainer to={path}>
       <h3>{text}</h3>
     </SubMenuItemContainer>
   );
