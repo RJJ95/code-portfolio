@@ -3,6 +3,7 @@ export const theme = {
     black: "#000",
     white: "#FFF",
     darkGrey: "#232323",
-    lightGrey: "#302F2F",
+    mediumGrey: "#302F2F",
+    lightGrey: "#545454",
   },
 };

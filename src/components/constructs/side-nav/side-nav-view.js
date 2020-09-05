@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import MenuItem from "./components/menu-item";
+import MenuItems from "./components/menu-items";
 
 // Content
 import { menuItems } from "./content";
@@ -12,14 +12,8 @@ import { SideNavContainer, SideNavHeader } from "./side-nav-style";
 const SideNav = () => {
   return (
     <SideNavContainer>
-      <SideNavHeader />
-      {menuItems.map((item) => (
-        <MenuItem
-          path={item.path}
-          logo={item.logo}
-          menuItemText={item.menuItemText}
-        />
-      ))}
+      <SideNavHeader>mycode</SideNavHeader>
+      <MenuItems menuItems={menuItems} />
     </SideNavContainer>
   );
 };

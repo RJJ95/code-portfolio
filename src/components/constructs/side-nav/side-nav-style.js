@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { Column } from "../../primitives/column";
 
 export const SideNavContainer = styled(Column)`
-  background-color: ${(props) => props.theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.mediumGrey};
   position: fixed;
   height: 100vh;
   width: 200px;
 `;
 
-export const SideNavHeader = styled.div``;
+export const SideNavHeader = styled.h2`
+  color: ${({ theme }) => theme.colors.white};
+  margin-left: 15px;
+`;
