@@ -1,9 +1,7 @@
 import React from "react";
 
-import SideNav from "../../components/constructs/side-nav";
-
 const Home = () => {
-  return <SideNav />;
+  return <h1>Welcome</h1>
 };
 
 export default Home;

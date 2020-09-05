@@ -7,10 +7,9 @@ const MenuLink = styled(Link)`
   flex-direction: row;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
-  margin-bottom: 20px;
   padding-left: 15px;
   align-items: center;
-  height: 50px;
+  height: 60px;
 
   :hover {
     background-color: ${({ theme }) => theme.colors.lightGrey};

@@ -4,17 +4,21 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/home";
 
+// Components
+import Layout from "./components/constructs/layout";
+
 // Config
 import { PATHNAMES } from "./config/pathnames";
 
 export default function App() {
   return (
     <Router>
-      <Switch>
-        <Route path={PATHNAMES.HOME}>
-          <Home />
-        </Route>
-        {/* <Route path={PATHNAMES.REACT}>
+      <Layout>
+        <Switch>
+          <Route path={PATHNAMES.HOME}>
+            <Home />
+          </Route>
+          {/* <Route path={PATHNAMES.REACT}>
           <React />
         </Route>
         <Route path={PATHNAMES.VUE}>
@@ -23,7 +27,8 @@ export default function App() {
         <Route path={PATHNAMES.ANGULAR}>
           <Angular />
         </Route> */}
-      </Switch>
+        </Switch>
+      </Layout>
     </Router>
   );
 }
