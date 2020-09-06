@@ -12,7 +12,7 @@ const SubMenuItemContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 100px;
+  margin-right: 60px;
   flex: 0 0 auto;
 
   :hover {

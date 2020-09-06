@@ -16,8 +16,4 @@ export const SubMenuItemsContainer = styled(Row)`
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-
-  :last-child {
-    margin-right: 100px;
-  }
 `;
