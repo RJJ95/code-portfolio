@@ -33,6 +33,7 @@ const SubMenuPage = ({ page }) => {
   }
 
   function getSubMenuContent() {
+    console.log(page)
     switch (page) {
       case "react":
         return reactSubMenuContent.map((subMenuRow) => (

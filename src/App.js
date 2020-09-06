@@ -24,10 +24,10 @@ export default function App() {
           <Route path={PATHNAMES.REACT}>
             <SubMenuPage page="react" />
           </Route>
-          <Route path={PATHNAMES.REACT}>
+          <Route path={PATHNAMES.VUE}>
             <SubMenuPage page="vue" />
           </Route>
-          <Route path={PATHNAMES.REACT}>
+          <Route path={PATHNAMES.ANGULAR}>
             <SubMenuPage page="angular" />
           </Route>
         </Switch>

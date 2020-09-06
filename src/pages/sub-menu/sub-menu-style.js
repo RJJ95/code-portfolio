@@ -7,6 +7,7 @@ export const Container = styled(Column)`
 
   svg {
     width: 100px;
+    height: 100px;
     margin-left: 80px;
     margin-top: 30px;
     margin-bottom: 40px;
