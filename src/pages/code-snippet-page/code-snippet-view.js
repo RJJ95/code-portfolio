@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { atelierPlateauDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import Typist from "react-typist";
 
+// Styles
 import {
   Container,
   Header,
@@ -8,13 +10,14 @@ import {
   CodeSnippetContainer,
   CodeSnippet,
   Description,
+  CopyIcon,
+  CheckIcon,
 } from "./code-snippet-style";
 
-const CodeSnippetPage = () => {
-  const headerText = "React Router";
-  const descriptionText =
-    "In this example we have 3 “pages” handled by the router: a home page, an about page, and a users page. As you click around on the different <Link>s, the router renders the matching <Route>.";
-  const codeSnippetText = `function createChildren(style, useInlineStyles) {
+const headerText = "React Router";
+const descriptionText =
+  "In this example we have 3 “pages” handled by the router: a home page, an about page, and a users page. As you click around on the different <Link>s, the router renders the matching <Route>.";
+const codeSnippetText = `function createChildren(style, useInlineStyles) {
     let childrenCount = 0;
     return children => {
       childrenCount += 1;
@@ -26,6 +29,18 @@ const CodeSnippetPage = () => {
       }));
     }
   }`;
+
+const CodeSnippetPage = () => {
+  const [copied, setCopied] = useState();
+
+  function handleCopy() {
+    navigator.clipboard.writeText(codeSnippetText).then(() => {
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 1000);
+    });
+  }
   return (
     <Container>
       <Header>{headerText}</Header>
@@ -33,9 +48,12 @@ const CodeSnippetPage = () => {
         <Description>{descriptionText}</Description>
       </DescriptionContainer>
       <CodeSnippetContainer>
-        <CodeSnippet language="javascript" style={atelierPlateauDark}>
-          {codeSnippetText}
-        </CodeSnippet>
+        {copied ? <CheckIcon /> : <CopyIcon onClick={handleCopy} icon="copy" />}
+        <Typist avgTypingDelay={10} cursor={{ show: false }}>
+          <CodeSnippet language="javascript" style={atelierPlateauDark}>
+            {codeSnippetText}
+          </CodeSnippet>
+        </Typist>
       </CodeSnippetContainer>
     </Container>
   );
