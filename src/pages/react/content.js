@@ -29,6 +29,10 @@ export const ReactSubMenuContent = [
         text: "Page",
         path: REACT_SUBMENUPATHS.PAGE,
       },
+      {
+        text: "Custom checkbox",
+        path: REACT_SUBMENUPATHS.CUSTOM_CHECKBOX,
+      },
     ],
   },
   {

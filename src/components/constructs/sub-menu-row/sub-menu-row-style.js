@@ -12,4 +12,8 @@ export const Label = styled.label`
     margin-bottom: 20px;
 `;
 
-export const SubMenuItemsContainer = styled(Row)``;
+export const SubMenuItemsContainer = styled(Row)`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+`;

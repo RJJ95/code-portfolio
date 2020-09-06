@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { Column } from "../../components/primitives/column";
 import { ReactComponent as Logo } from "../../assets/images/react-logo.svg";
 
-export const Container = styled(Column)``;
+export const Container = styled(Column)`
+  width: 100%;
+`;
 
 export const ReactLogo = styled(Logo)`
   width: 100px;

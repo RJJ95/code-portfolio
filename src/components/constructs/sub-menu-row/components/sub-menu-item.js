@@ -13,6 +13,7 @@ const SubMenuItemContainer = styled(Link)`
   align-items: center;
   justify-content: center;
   margin-right: 100px;
+  flex: 0 0 auto;
 
   :hover {
     background-color: ${({ theme }) => theme.colors.lightGrey};

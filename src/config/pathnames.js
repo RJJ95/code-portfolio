@@ -13,4 +13,5 @@ export const REACT_SUBMENUPATHS = {
   FORMS: `${PATHNAMES.REACT}/forms`,
   PRIVATE_ROUTE: `${PATHNAMES.REACT}/private-route`,
   PAGE: `${PATHNAMES.REACT}/page`,
+  CUSTOM_CHECKBOX: `${PATHNAMES.REACT}/custom-checkbox`,
 };
