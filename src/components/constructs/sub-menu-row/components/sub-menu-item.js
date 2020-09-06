@@ -13,6 +13,10 @@ const SubMenuItemContainer = styled(Link)`
   align-items: center;
   justify-content: center;
   margin-right: 100px;
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.lightGrey};
+  }
 `;
 
 const SubMenuItem = ({ path, text }) => {
