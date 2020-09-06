@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/home";
 import SubMenuPage from "./pages/sub-menu";
+import CodeSnippetPage from "./pages/code-snippet-page";
 
 // Components
 import Layout from "./components/constructs/layout";
@@ -21,9 +22,19 @@ export default function App() {
           <Route exact path={PATHNAMES.HOME}>
             <Home />
           </Route>
-          <Route path={PATHNAMES.REACT}>
+          <Route exact path={PATHNAMES.REACT}>
             <SubMenuPage page="react" />
           </Route>
+          <Route
+            path={
+              `${PATHNAMES.REACT}/:id` ||
+              `${PATHNAMES.VUE}/:id` ||
+              `${PATHNAMES.ANGULAR}/:id`
+            }
+          >
+            <CodeSnippetPage />
+          </Route>
+          
           <Route path={PATHNAMES.VUE}>
             <SubMenuPage page="vue" />
           </Route>

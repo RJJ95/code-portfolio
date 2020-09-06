@@ -6,4 +6,7 @@ export const theme = {
     mediumGrey: "#302F2F",
     lightGrey: "#545454",
   },
+  borderRadius: {
+    medium: "10px",
+  },
 };

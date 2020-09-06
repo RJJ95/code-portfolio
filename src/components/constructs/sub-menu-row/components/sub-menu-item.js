@@ -6,7 +6,7 @@ const SubMenuItemContainer = styled(Link)`
   text-decoration: none;
   width: 250px;
   height: 125px;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   background-color: ${({ theme }) => theme.colors.mediumGrey};
   color: ${({ theme }) => theme.colors.white};
   display: flex;
