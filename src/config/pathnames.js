@@ -3,6 +3,7 @@ export const PATHNAMES = {
   REACT: "/react",
   VUE: "/vue",
   ANGULAR: "/angular",
+  LOGIN: "/login",
 };
 
 export const REACT_SUBMENUPATHS = {

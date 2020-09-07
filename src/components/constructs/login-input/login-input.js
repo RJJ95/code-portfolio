@@ -5,9 +5,16 @@ import { Row } from "../../primitives/row";
 
 const Container = styled(Row)``;
 
-const LoginInput = () => {
+const Label = styled.label``;
+
+const StyledInput = styled.input``;
+
+const ContinueButton = styled.button``;
+
+const LoginInput = ({ label, type, value, onChange, onClick, buttonText }) => {
   return (
     <Container>
+      <Label>{label}</Label>
       <StyledInput type={type} value={value} onChange={onChange} />
       <ContinueButton onClick={onClick}>{buttonText}</ContinueButton>
     </Container>
