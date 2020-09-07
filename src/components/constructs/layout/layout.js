@@ -15,8 +15,8 @@ const LayoutContainer = styled(Row)`
   color: ${({ theme }) => theme.colors.white};
   width: ${(props) => (props.login ? "86vw" : "100vw")};
   height: ${(props) => !props.login && "100vh"};
-  align-items: center;
-  justify-content: center;
+  align-items: ${(props) => (props.login ? null : "center")};
+  justify-content: ${(props) => (props.login ? null : "center")};
 `;
 
 const Layout = ({ children }) => {
