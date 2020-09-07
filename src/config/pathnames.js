@@ -16,3 +16,5 @@ export const REACT_SUBMENUPATHS = {
   PAGE: `${PATHNAMES.REACT}/page`,
   CUSTOM_CHECKBOX: `${PATHNAMES.REACT}/custom-checkbox`,
 };
+
+export const NO_MENU_PATHS = [PATHNAMES.LOGIN];

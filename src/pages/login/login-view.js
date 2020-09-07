@@ -16,10 +16,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [userNameFade, setUserNameFade] = useState(false);
-  const [passwordFade, setPasswordFade] = useState(false);
 
   const [userNameSuccess, setUserNameSuccess] = useState(false);
-  const [passwordSuccess, setPasswordSuccess] = useState(false);
 
   let history = useHistory();
 
@@ -34,12 +32,7 @@ const Login = () => {
 
   function handlePasswordSubmit() {
     if (password === "blabla") {
-      setPasswordFade(true);
-      setTimeout(() => {
-        history.push(PATHNAMES.HOME);
-      }, 1200);
-
-      setPasswordSuccess(true);
+      history.push(PATHNAMES.HOME);
     }
   }
 
@@ -51,7 +44,6 @@ const Login = () => {
           <LoginInput
             label="Password"
             type="password"
-            fadeOut={passwordSuccess}
             onChange={(e) => setPassword(e.target.value)}
             onClick={() => handlePasswordSubmit()}
             value={password}
