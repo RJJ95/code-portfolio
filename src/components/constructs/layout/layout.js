@@ -9,14 +9,19 @@ import { Row } from "../../primitives/row";
 const LayoutContainer = styled(Row)`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   color: ${({ theme }) => theme.colors.white};
-  width: 86vw;
+  width: ${(props) => (props.login ? "100vw" : "86vw")};
+  height: ${(props) => props.login && "100vh"};
 `;
 
 const Layout = ({ children }) => {
+  function checkLoginPage() {
+    return window.location.pathname.split("/")[1] === "login";
+  }
+
   return (
     <Row>
-      <SideNav />
-      <LayoutContainer>{children}</LayoutContainer>
+      {!checkLoginPage() && <SideNav />}
+      <LayoutContainer login={checkLoginPage()}>{children}</LayoutContainer>
     </Row>
   );
 };
