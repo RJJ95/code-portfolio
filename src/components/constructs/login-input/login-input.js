@@ -1,19 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+// Animations
+import { fadeOutLeft } from "../../../config/animations";
+
 // Components
 import { Row } from "../../primitives/row";
 import { Column } from "../../primitives/column";
 import { ReactComponent as Forward } from "../../../assets/icons/arrow-forward-outline.svg";
-
-const Container = styled(Column)`
-  width: 600px;
-  height: 300px;
-  background-color: ${({ theme }) => theme.colors.mediumGrey};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  justify-content: center;
-  align-items: center;
-`;
 
 const ForwardIcon = styled(Forward)`
   width: 20px;
@@ -27,6 +21,10 @@ const Label = styled.label`
 
 const StyledInput = styled.input``;
 
+const AnimatedColumn = styled(Column)`
+  animation: ${(props) => props.fadeOut && fadeOutLeft} 1.2s;
+`;
+
 const ContinueButton = styled.button`
   height: 30px;
   width: 30px;
@@ -39,21 +37,20 @@ const ContinueButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  outline: none;
 `;
 
-const LoginInput = ({ label, type, value, onChange, onClick }) => {
+const LoginInput = ({ label, type, value, onChange, onClick, fadeOut }) => {
   return (
-    <Container>
-      <Column>
-        <Label>{label}</Label>
-        <Row>
-          <StyledInput type={type} value={value} onChange={onChange} />
-          <ContinueButton onClick={onClick}>
-            <ForwardIcon />
-          </ContinueButton>
-        </Row>
-      </Column>
-    </Container>
+    <AnimatedColumn fadeOut={fadeOut}>
+      <Label>{label}</Label>
+      <Row>
+        <StyledInput type={type} value={value} onChange={onChange} />
+        <ContinueButton onClick={onClick}>
+          <ForwardIcon />
+        </ContinueButton>
+      </Row>
+    </AnimatedColumn>
   );
 };
 

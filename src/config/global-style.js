@@ -13,6 +13,7 @@ body {
 label {
   color: ${(props) => props.theme.colors.lightGrey};
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 pre {
