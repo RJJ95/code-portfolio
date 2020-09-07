@@ -1,12 +1,10 @@
 import React from 'react';
 
-import LoginInput from "../../components/constructs/"
+import LoginInput from "../../components/constructs/login-input/login-input"
 
 const Login = () => {
     return ( 
-        <>
-            <LoginInput />
-        </>
+            <LoginInput label="Username" />
      );
 }
  

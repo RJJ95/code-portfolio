@@ -7,6 +7,11 @@ export const theme = {
     lightGrey: "#545454",
   },
   borderRadius: {
+    small: "3px",
     medium: "10px",
+    large: "30px",
+  },
+  shadows: {
+    medium: "0 2px 15px 0 rgba(0,0,0,0.50)",
   },
 };
