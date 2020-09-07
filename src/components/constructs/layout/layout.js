@@ -13,7 +13,7 @@ import { NO_MENU_PATHS } from "../../../config/pathnames";
 const LayoutContainer = styled(Row)`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   color: ${({ theme }) => theme.colors.white};
-  width: ${(props) => (!props.login ? "100vw" : "86vw")};
+  width: ${(props) => (props.login ? "86vw" : "100vw")};
   height: ${(props) => !props.login && "100vh"};
   align-items: center;
   justify-content: center;
