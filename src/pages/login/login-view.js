@@ -26,7 +26,7 @@ const Login = () => {
       setUserNameFade(true);
       setTimeout(() => {
         setUserNameSuccess(true);
-      }, 1200);
+      }, 1100);
     }
   }
 

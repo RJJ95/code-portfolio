@@ -12,6 +12,7 @@ import {
   Description,
   CopyIcon,
   CheckIcon,
+  DownloadIcon,
 } from "./code-snippet-style";
 
 const headerText = "React Router";
@@ -41,6 +42,11 @@ const CodeSnippetPage = () => {
       }, 1000);
     });
   }
+
+  function handleDownload() {
+
+  }
+  
   return (
     <Container>
       <Header>{headerText}</Header>
@@ -48,8 +54,9 @@ const CodeSnippetPage = () => {
         <Description>{descriptionText}</Description>
       </DescriptionContainer>
       <CodeSnippetContainer>
-        {copied ? <CheckIcon /> : <CopyIcon onClick={handleCopy} icon="copy" />}
-        <Typist avgTypingDelay={10} cursor={{ show: false }}>
+        <DownloadIcon onClick={handleDownload} />
+        {copied ? <CheckIcon /> : <CopyIcon onClick={handleCopy} />}
+        <Typist avgTypingDelay={1} cursor={{ show: false }}>
           <CodeSnippet language="javascript" style={atelierPlateauDark}>
             {codeSnippetText}
           </CodeSnippet>
