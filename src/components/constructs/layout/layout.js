@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
 // Components
 import SideNav from "../side-nav";
 import { Row } from "../../primitives/row";
+import AddSnippetModal from "./components/modal";
 
 // Config
 import { NO_MENU_PATHS } from "../../../config/pathnames";
@@ -20,12 +21,16 @@ const LayoutContainer = styled(Row)`
 `;
 
 const Layout = ({ children }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
   let location = useLocation();
   let showSideNav = !NO_MENU_PATHS.includes(location.pathname);
+
   return (
     <Row>
-      {showSideNav && <SideNav />}
+      {showSideNav && <SideNav handleClick={() => setIsOpen(true)} />}
       <LayoutContainer login={showSideNav}>{children}</LayoutContainer>
+      <AddSnippetModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
     </Row>
   );
 };

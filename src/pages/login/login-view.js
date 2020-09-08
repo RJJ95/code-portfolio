@@ -32,6 +32,7 @@ const Login = () => {
 
   function handlePasswordSubmit() {
     if (password === "blabla") {
+      localStorage.setItem("login", true);
       history.push(PATHNAMES.HOME);
     }
   }

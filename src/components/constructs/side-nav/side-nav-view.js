@@ -9,13 +9,11 @@ import { menuItems } from "./content";
 // Styled components
 import { SideNavContainer, SideNavHeader } from "./side-nav-style";
 
-const SideNav = () => {
-  return (
-    <SideNavContainer>
-      <SideNavHeader>mycode</SideNavHeader>
-      <MenuItems menuItems={menuItems} />
-    </SideNavContainer>
-  );
-};
+const SideNav = ({ handleClick }) => (
+  <SideNavContainer>
+    <SideNavHeader>mycode</SideNavHeader>
+    <MenuItems menuItems={menuItems} handleClick={handleClick} />
+  </SideNavContainer>
+);
 
 export default SideNav;
