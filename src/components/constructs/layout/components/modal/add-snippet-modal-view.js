@@ -12,6 +12,7 @@ import {
 import "./modal-styles.css";
 
 import LabelledSelect from "../../../labelled-select/labelled-select";
+import LabelledTextarea from "../../../labelled-textarea/labelled-textarea";
 
 Modal.setAppElement("#root");
 
@@ -48,7 +49,8 @@ const options = [
 ];
 
 const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
-  const [selectValue, setSelectValue] = useState(null);
+  const [framework, setFramework] = useState(null);
+  const [description, setDescription] = useState("");
 
   return (
     <Modal
@@ -66,8 +68,13 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
             <LabelledSelect
               label="Select framework"
               options={options}
-              onChange={(e) => setSelectValue(e.target.value)}
-              value={selectValue}
+              onChange={(e) => setFramework(e.target.value)}
+              value={framework}
+            />
+            <LabelledTextarea
+              label="Description of your snippet"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </Form>
         </BodyContainer>

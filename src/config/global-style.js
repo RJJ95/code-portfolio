@@ -20,7 +20,7 @@ pre {
   margin: 0;
 }
 
-input, select {
+input, select, textarea {
   background-color: ${({ theme }) => theme.colors.lightGrey};
   height: 25px;
   width: 250px;
