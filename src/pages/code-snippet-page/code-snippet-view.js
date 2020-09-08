@@ -44,9 +44,22 @@ const CodeSnippetPage = () => {
   }
 
   function handleDownload() {
+    const filename = headerText.replace(" ", "/");
+    var element = document.createElement("a");
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," + encodeURIComponent(codeSnippetText)
+    );
+    element.setAttribute("download", filename.toLowerCase());
 
+    element.style.display = "none";
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
   }
-  
+
   return (
     <Container>
       <Header>{headerText}</Header>
