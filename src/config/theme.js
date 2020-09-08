@@ -14,4 +14,9 @@ export const theme = {
   shadows: {
     medium: "0 2px 15px 0 rgba(0,0,0,0.50)",
   },
+  fonts: {
+    standard: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'sans-serif'`,
+  },
 };

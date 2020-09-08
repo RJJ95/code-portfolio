@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Column } from "../../primitives/column";
 
 const Textarea = styled.textarea`
-    
+  margin-top: 10px;
 `;
 
 const LabelledTextarea = ({ label, value, onChange }) => {
