@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import { Column } from "../../../../primitives/column";
-import { Row } from "../../../../primitives/row";
 
 export const ModalContainer = styled(Column)``;
 
