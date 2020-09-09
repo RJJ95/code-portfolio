@@ -62,17 +62,18 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
 
   function createSnippet(e) {
     e.preventDefault();
-    snippetsApi
-      .createSnippet(framework, {
-        description: description,
-        snippet: snippet,
-      })
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // snippetsApi
+    //   .createSnippet(framework, {
+    //     description: description,
+    //     snippet: snippet,
+    //   })
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    console.log(framework);
   }
 
   return (
