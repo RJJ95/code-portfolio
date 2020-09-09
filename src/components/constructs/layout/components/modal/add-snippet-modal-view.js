@@ -7,6 +7,8 @@ import {
   Header,
   BodyContainer,
   Form,
+  SelectContainer,
+  TextareaContainer,
 } from "./add-snippet-modal-style.js";
 
 import "./modal-styles.css";
@@ -37,7 +39,7 @@ const modalStyles = {
   },
 };
 
-const options = [
+const frameworkOptions = [
   {
     text: "React",
     value: "react",
@@ -52,28 +54,47 @@ const options = [
   },
 ];
 
+const categoryOptions = [
+  {
+    text: "Styling",
+    value: "styling",
+  },
+  {
+    text: "Architecture",
+    value: "architecture",
+  },
+  {
+    text: "API",
+    value: "api",
+  },
+  {
+    text: "Misceleneous",
+    value: "misceleneous",
+  },
+];
+
 const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
   const [framework, setFramework] = useState("");
   const [description, setDescription] = useState("");
   const [snippet, setSnippet] = useState("");
+  const [category, setCategory] = useState("");
 
   let snippetsApi;
   snippetsApi = new Snippets();
 
   function createSnippet(e) {
     e.preventDefault();
-    // snippetsApi
-    //   .createSnippet(framework, {
-    //     description: description,
-    //     snippet: snippet,
-    //   })
-    //   .then((result) => {
-    //     console.log(result);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-    console.log(framework);
+    snippetsApi
+      .createSnippet(framework, {
+        description: description,
+        snippet: snippet,
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -89,22 +110,36 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
         </HeaderContainer>
         <BodyContainer>
           <Form>
-            <LabelledSelect
-              label="Select framework"
-              options={options}
-              onChange={(e) => setFramework(e.target.value)}
-              value={framework}
-            />
-            <LabelledTextarea
-              label="Description of your snippet"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <LabelledTextarea
-              label="Your snippet"
-              value={snippet}
-              onChange={(e) => setSnippet(e.target.value)}
-            />
+            <SelectContainer>
+              <LabelledSelect
+                label="Select framework"
+                options={frameworkOptions}
+                onChange={(e) => setFramework(e.target.value)}
+                value={framework}
+              />
+            </SelectContainer>
+            <SelectContainer>
+              <LabelledSelect
+                label="Select category"
+                options={categoryOptions}
+                onChange={(e) => setCategory(e.target.value)}
+                value={category}
+              />
+            </SelectContainer>
+            <TextareaContainer>
+              <LabelledTextarea
+                label="Describe your snippet"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </TextareaContainer>
+            <TextareaContainer>
+              <LabelledTextarea
+                label="Your snippet"
+                value={snippet}
+                onChange={(e) => setSnippet(e.target.value)}
+              />
+            </TextareaContainer>
             <button onClick={(e) => createSnippet(e)}>Create snippet</button>
           </Form>
         </BodyContainer>

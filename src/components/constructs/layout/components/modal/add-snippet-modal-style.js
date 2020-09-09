@@ -11,3 +11,11 @@ export const Header = styled.h2``;
 export const BodyContainer = styled(Column)``;
 
 export const Form = styled.form``;
+
+export const SelectContainer = styled.div`
+  margin-top: 20px;
+`;
+
+export const TextareaContainer = styled.div`
+  margin-top: 20px;
+`;
