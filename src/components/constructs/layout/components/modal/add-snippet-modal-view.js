@@ -9,6 +9,7 @@ import {
   Form,
   SelectContainer,
   TextareaContainer,
+  Button,
 } from "./add-snippet-modal-style.js";
 
 import "./modal-styles.css";
@@ -140,7 +141,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 onChange={(e) => setSnippet(e.target.value)}
               />
             </TextareaContainer>
-            <button onClick={(e) => createSnippet(e)}>Create snippet</button>
+            <Button onClick={(e) => createSnippet(e)}>Create snippet</Button>
           </Form>
         </BodyContainer>
       </ModalContainer>

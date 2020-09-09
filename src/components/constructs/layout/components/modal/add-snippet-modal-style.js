@@ -19,3 +19,7 @@ export const SelectContainer = styled.div`
 export const TextareaContainer = styled.div`
   margin-top: 20px;
 `;
+
+export const Button = styled.button`
+  margin-top: 30px;
+`;

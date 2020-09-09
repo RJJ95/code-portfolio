@@ -56,6 +56,7 @@ button {
   padding: 10px 15px;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.standard};
+  cursor: pointer;
 }
 `;
 
