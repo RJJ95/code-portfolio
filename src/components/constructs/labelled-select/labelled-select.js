@@ -8,7 +8,6 @@ const Container = styled.div`
   position: relative;
   height: 25px;
   width: 250px;
-  margin-top: 10px;
 `;
 
 const Select = styled.select`
@@ -26,23 +25,20 @@ const ArrowIcon = styled(Arrow)`
   pointer-events: none;
 `;
 
-const LabelledSelect = ({ label, onChange, options, value }) => {
-  return (
-    <Column>
-      <label>{label}</label>
-      <Container>
-        <Select value={value} onChange={onChange}>
-          <option>Select option</option>
-          {options.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </Select>
-        <ArrowIcon />
-      </Container>
-    </Column>
-  );
-};
-
+const LabelledSelect = ({ label, onChange, options, value }) => (
+  <Column>
+    <label>{label}</label>
+    <Container>
+      <Select value={value} onChange={onChange}>
+        <option>Select option</option>
+        {options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.text}
+          </option>
+        ))}
+      </Select>
+      <ArrowIcon />
+    </Container>
+  </Column>
+);
 export default LabelledSelect;

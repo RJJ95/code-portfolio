@@ -10,7 +10,9 @@ body {
 
 label {
   color: ${(props) => props.theme.colors.lightGrey};
-  font-weight: 600;
+  font-weight: 550;
+  margin-bottom: 7.5px;
+  font-size: 14px;
 }
 
 pre {

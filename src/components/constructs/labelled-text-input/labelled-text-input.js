@@ -3,14 +3,15 @@ import styled from "styled-components";
 
 import { Column } from "../../primitives/column";
 
-const Input = styled.input`
-  margin-top: 20px;
-`;
-
-const LabelledTextInput = ({ label, value, onChange }) => (
+const LabelledTextInput = ({ label, value, onChange, placeholder }) => (
   <Column>
     <label>{label}</label>
-    <Input type="text" value={value} onChange={onChange} />
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
   </Column>
 );
 export default LabelledTextInput;
