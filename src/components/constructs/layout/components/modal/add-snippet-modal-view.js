@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 import {
   ModalContainer,
@@ -77,9 +82,12 @@ const categoryOptions = [
 const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
   const [framework, setFramework] = useState("");
   const [description, setDescription] = useState("");
-  const [snippet, setSnippet] = useState("");
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
+
+  const [snippet, setSnippet] = useState(
+    "const a = () => console.log('put your snippet here!')"
+  );
 
   let snippetsApi;
   snippetsApi = new Snippets();
@@ -144,10 +152,19 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
               />
             </InputContainer>
             <InputContainer>
-              <LabelledTextarea
-                label="Your snippet"
+              <AceEditor
+                mode="javascript"
+                theme="twilight"
+                onChange={setSnippet}
+                editorProps={{ $blockScrolling: true }}
+                setOptions={{
+                  enableBasicAutocompletion: true,
+                  enableLiveAutocompletion: true,
+                  enableSnippets: true,
+                }}
+                width="100%"
+                height="200px"
                 value={snippet}
-                onChange={(e) => setSnippet(e.target.value)}
               />
             </InputContainer>
             <Button onClick={(e) => createSnippet(e)}>Create snippet</Button>
