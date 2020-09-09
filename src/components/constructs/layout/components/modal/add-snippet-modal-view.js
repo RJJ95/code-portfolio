@@ -107,12 +107,20 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
       });
   }
 
+  function resetStateVariables() {
+    setFramework("");
+    setDescription("");
+    setCategory("");
+    setTitle("");
+  }
+
   return (
     <Modal
       isOpen={modalIsOpen}
       shouldCloseOnOverlayClick={true}
       onRequestClose={() => setIsOpen(false)}
       style={modalStyles}
+      onAfterClose={resetStateVariables}
     >
       <ModalContainer>
         <HeaderContainer>
