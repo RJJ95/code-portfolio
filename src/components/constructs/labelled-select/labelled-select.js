@@ -32,7 +32,7 @@ const LabelledSelect = ({ label, onChange, options, value }) => {
       <label>{label}</label>
       <Container>
         <Select value={value} onChange={onChange}>
-          <option>Select framework</option>
+          <option>Select option</option>
           {options.map((option, index) => (
             <option key={index} value={option.value}>
               {option.text}

@@ -24,7 +24,6 @@ input, select {
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   outline: none;
-  background: #545454;
   box-shadow: ${({ theme }) => theme.shadows.medium};
   padding: 2.5px 10px;
   color: ${({ theme }) => theme.colors.white};
@@ -37,7 +36,22 @@ textarea {
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   outline: none;
-  background: #545454;
+  box-shadow: ${({ theme }) => theme.shadows.medium};
+  padding: 10px 15px;
+  color: ${({ theme }) => theme.colors.white};
+  font-family: ${({ theme }) => theme.fonts.standard};
+}
+
+button {
+  background-color: ${(props) =>
+    props.color
+      ? props.theme.colors[props.color]
+      : props.theme.colors.lightGrey};
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: ${({ theme }) => theme.borderRadius.small};
+  outline: none;
   box-shadow: ${({ theme }) => theme.shadows.medium};
   padding: 10px 15px;
   color: ${({ theme }) => theme.colors.white};
