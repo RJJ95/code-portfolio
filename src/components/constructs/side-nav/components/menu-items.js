@@ -28,8 +28,9 @@ const MenuItems = ({ menuItems, handleClick }) => {
   return (
     <Container>
       <Column>
-        {menuItems.map((item) => (
+        {menuItems.map((item, index) => (
           <MenuItem
+            key={index}
             path={item.path}
             logo={item.logo}
             menuItemText={item.menuItemText}
