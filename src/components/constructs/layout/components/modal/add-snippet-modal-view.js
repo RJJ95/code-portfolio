@@ -11,8 +11,12 @@ import {
 
 import "./modal-styles.css";
 
+// Components
 import LabelledSelect from "../../../labelled-select/labelled-select";
 import LabelledTextarea from "../../../labelled-textarea/labelled-textarea";
+
+// API
+import Snippets from "../../../../../api/snippets";
 
 Modal.setAppElement("#root");
 
@@ -36,21 +40,40 @@ const modalStyles = {
 const options = [
   {
     text: "React",
-    value: 0,
+    value: "react",
   },
   {
     text: "Vue",
-    value: 1,
+    value: "vue",
   },
   {
     text: "Angular",
-    value: 2,
+    value: "angular",
   },
 ];
 
 const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
-  const [framework, setFramework] = useState(null);
+  const [framework, setFramework] = useState("");
   const [description, setDescription] = useState("");
+  const [snippet, setSnippet] = useState("");
+
+  let snippetsApi;
+  snippetsApi = new Snippets();
+
+  function createSnippet(e) {
+    e.preventDefault();
+    snippetsApi
+      .createSnippet(framework, {
+        description: description,
+        snippet: snippet,
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <Modal
@@ -76,6 +99,12 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
+            <LabelledTextarea
+              label="Your snippet"
+              value={snippet}
+              onChange={(e) => setSnippet(e.target.value)}
+            />
+            <button onClick={(e) => createSnippet(e)}>Create snippet</button>
           </Form>
         </BodyContainer>
       </ModalContainer>
