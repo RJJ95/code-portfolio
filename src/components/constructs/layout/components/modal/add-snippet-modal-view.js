@@ -100,13 +100,13 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
   }
 
   function createSnippet(e) {
+    e.preventDefault();
     doFetch(`/snippets/${framework}.json`, {
       description: description,
       category: category,
       title: title,
       snippet: snippet,
     });
-    e.preventDefault();
   }
 
   return (
