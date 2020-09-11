@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer } from "react";
-import axios from "axios";
+import getAxios from "./api";
 
 const dataFetchReducer = (state, action) => {
   switch (action.type) {
@@ -41,7 +41,7 @@ const useGetData = (initialUrl, initialData) => {
       dispatch({ type: "FETCH_INIT" });
 
       try {
-        const result = await axios(url);
+        const result = await getAxios().get(url);
 
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (error) {
