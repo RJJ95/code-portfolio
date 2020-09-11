@@ -86,7 +86,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
   const [title, setTitle] = useState("");
 
   const [snippet, setSnippet] = useState(
-    "const a = () => console.log('put your snippet here!')"
+    "const a = () => console.log('something')"
   );
 
   let snippetsApi;
@@ -112,6 +112,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
     setDescription("");
     setCategory("");
     setTitle("");
+    setSnippet("const a = () => console.log('something')");
   }
 
   return (
