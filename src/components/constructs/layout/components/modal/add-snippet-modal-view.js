@@ -158,6 +158,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 label="Describe your snippet"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                placeholder="What does your snippet do?"
               />
             </InputContainer>
             <InputContainer>
