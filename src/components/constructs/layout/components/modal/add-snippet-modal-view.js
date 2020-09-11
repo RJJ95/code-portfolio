@@ -24,7 +24,7 @@ import LabelledTextarea from "../../../labelled-textarea/labelled-textarea";
 import LabelledTextInput from "../../../labelled-text-input/labelled-text-input";
 
 // API
-import Snippets from "../../../../../api/snippets";
+import useApi from "../../../../../api/useApi";
 
 Modal.setAppElement("#root");
 
@@ -84,28 +84,11 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
-
   const [snippet, setSnippet] = useState(
     "const a = () => console.log('something')"
   );
 
-  let snippetsApi;
-  snippetsApi = new Snippets();
-
-  function createSnippet(e) {
-    e.preventDefault();
-    snippetsApi
-      .createSnippet(framework, {
-        description: description,
-        snippet: snippet,
-      })
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  const [{ data, isLoading, isError }, doFetch] = useApi("post");
 
   function resetStateVariables() {
     setFramework("");
@@ -113,6 +96,16 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
     setCategory("");
     setTitle("");
     setSnippet("const a = () => console.log('something')");
+  }
+
+  function createSnippet(e) {
+    doFetch(`/snippets/${framework}.json`, {
+      description: description,
+      category: category,
+      title: title,
+      snippet: snippet,
+    });
+    e.preventDefault();
   }
 
   return (
@@ -177,7 +170,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 value={snippet}
               />
             </InputContainer>
-            <Button onClick={(e) => createSnippet(e)}>Create snippet</Button>
+            <Button onClick={createSnippet}>Create snippet</Button>
           </Form>
         </BodyContainer>
       </ModalContainer>

@@ -9,8 +9,8 @@ const SubMenuRow = ({ label, items }) => {
     <Container>
       <Label>{label}</Label>
       <SubMenuItemsContainer>
-        {items.map((item) => (
-          <SubMenuItem path={item.path} text={item.text} />
+        {items.map((item, index) => (
+          <SubMenuItem key={index} path={item.path} text={item.text} />
         ))}
       </SubMenuItemsContainer>
     </Container>

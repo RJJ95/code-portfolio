@@ -1,5 +1,5 @@
-import { useState, useEffect, useReducer } from "react";
-import getAxios from "./api";
+import { useReducer } from "react";
+import axios from "axios";
 
 const dataFetchReducer = (state, action) => {
   switch (action.type) {
@@ -27,32 +27,29 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
-const useGetData = (initialUrl, initialData) => {
-  const [url, setUrl] = useState(initialUrl);
-
+const useApi = (method) => {
   const [state, dispatch] = useReducer(dataFetchReducer, {
     isLoading: false,
     isError: false,
-    data: initialData,
+    data: null,
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch({ type: "FETCH_INIT" });
+  axios.defaults.baseURL = "https://code-portfolio-f44c5.firebaseio.com";
 
-      try {
-        const result = await getAxios().get(url);
+  const fetchData = async (url, data) => {
+    dispatch({ type: "FETCH_INIT" });
 
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
-      } catch (error) {
-        dispatch({ type: "FETCH_FAILURE" });
-      }
-    };
+    try {
+      const result = await axios[method](url, data);
 
-    fetchData();
-  }, [url]);
+      dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+    } catch (error) {
+      console.log(error)
+      dispatch({ type: "FETCH_FAILURE" });
+    }
+  };
 
-  return [state, setUrl];
+  return [state, fetchData];
 };
 
-export default useGetData;
+export default useApi;
