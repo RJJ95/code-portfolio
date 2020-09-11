@@ -22,6 +22,7 @@ import "./modal-styles.css";
 import LabelledSelect from "../../../labelled-select/labelled-select";
 import LabelledTextarea from "../../../labelled-textarea/labelled-textarea";
 import LabelledTextInput from "../../../labelled-text-input/labelled-text-input";
+import Loader from "../../../../primitives/loader";
 
 // API
 import useApi from "../../../../../api/useApi";
@@ -170,7 +171,9 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 value={snippet}
               />
             </InputContainer>
-            <Button onClick={createSnippet}>Create snippet</Button>
+            <Button onClick={createSnippet}>
+              {!isLoading ? <Loader /> : "Create snippet"}
+            </Button>
           </Form>
         </BodyContainer>
       </ModalContainer>
