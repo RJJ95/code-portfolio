@@ -171,8 +171,8 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 value={snippet}
               />
             </InputContainer>
-            <Button onClick={createSnippet}>
-              {!isLoading ? <Loader /> : "Create snippet"}
+            <Button disabled={isLoading} onClick={createSnippet}>
+              {isLoading ? <Loader /> : "Create snippet"}
             </Button>
           </Form>
         </BodyContainer>
