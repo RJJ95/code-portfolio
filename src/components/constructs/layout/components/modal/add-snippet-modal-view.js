@@ -90,7 +90,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
     "const a = () => console.log('something')"
   );
 
-  const [{ data, isLoading, isError }, api] = useApi("post");
+  const [{ isLoading, isError }, api] = useApi("post");
 
   function resetStateVariables() {
     setFramework("");
