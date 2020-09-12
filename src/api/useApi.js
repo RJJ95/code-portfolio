@@ -41,7 +41,6 @@ const useApi = (method) => {
 
     try {
       const result = await axios[method](url, data);
-
       dispatch({ type: "FETCH_SUCCESS", payload: result.data });
     } catch (error) {
       console.log(error)

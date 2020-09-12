@@ -25,11 +25,11 @@ const ArrowIcon = styled(Arrow)`
   pointer-events: none;
 `;
 
-const LabelledSelect = ({ label, onChange, options, value }) => (
+const LabelledSelect = ({ label, onChange, options, value, required }) => (
   <Column>
     <label>{label}</label>
     <Container>
-      <Select value={value} onChange={onChange}>
+      <Select required={required} value={value} onChange={onChange}>
         <option>Select option</option>
         {options.map((option, index) => (
           <option key={index} value={option.value}>

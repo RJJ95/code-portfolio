@@ -122,13 +122,14 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
           <Header>Add a snippet</Header>
         </HeaderContainer>
         <BodyContainer>
-          <Form>
+          <Form onSubmit={createSnippet}>
             <InputContainer>
               <LabelledSelect
                 label="Select framework"
                 options={frameworkOptions}
                 onChange={(e) => setFramework(e.target.value)}
                 value={framework}
+                required={true}
               />
             </InputContainer>
             <InputContainer>
@@ -137,6 +138,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 options={categoryOptions}
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
+                required={true}
               />
             </InputContainer>
             <InputContainer>
@@ -145,6 +147,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 onChange={(e) => setTitle(e.target.value)}
                 label="Title"
                 placeholder="What's the title of this snippet?"
+                required={true}
               />
             </InputContainer>
             <InputContainer>
@@ -153,6 +156,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="What does your snippet do?"
+                required={true}
               />
             </InputContainer>
             <InputContainer>
@@ -171,7 +175,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
                 value={snippet}
               />
             </InputContainer>
-            <Button disabled={isLoading} onClick={createSnippet}>
+            <Button type="submit" disabled={isLoading}>
               {isLoading ? <Loader /> : "Create snippet"}
             </Button>
           </Form>
