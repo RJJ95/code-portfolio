@@ -10,6 +10,7 @@ export const Container = styled(Column)`
 
 export const Label = styled.label`
   margin-bottom: 20px;
+  text-transform: uppercase;
 `;
 
 export const SubMenuItemsContainer = styled(Row)`

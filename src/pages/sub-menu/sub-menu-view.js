@@ -30,8 +30,6 @@ const SubMenuPage = ({ page }) => {
     await api(`/snippets/${page}.json`);
   }
 
-  function formatData() {}
-
   function getLogo() {
     switch (page) {
       case "react":
@@ -43,43 +41,6 @@ const SubMenuPage = ({ page }) => {
       default:
         return reactSubMenuContent.map((subMenuRow) => (
           <SubMenuRow label={subMenuRow.label} items={subMenuRow.items} />
-        ));
-    }
-  }
-
-  function getSubMenuContent() {
-    switch (page) {
-      case "react":
-        return reactSubMenuContent.map((subMenuRow, index) => (
-          <SubMenuRow
-            key={index}
-            label={subMenuRow.label}
-            items={subMenuRow.items}
-          />
-        ));
-      case "vue":
-        return vueSubMenuContent.map((subMenuRow, index) => (
-          <SubMenuRow
-            key={index}
-            label={subMenuRow.label}
-            items={subMenuRow.items}
-          />
-        ));
-      case "angular":
-        return angularSubMenuContent.map((subMenuRow, index) => (
-          <SubMenuRow
-            key={index}
-            label={subMenuRow.label}
-            items={subMenuRow.items}
-          />
-        ));
-      default:
-        return reactSubMenuContent.map((subMenuRow, index) => (
-          <SubMenuRow
-            key={index}
-            label={subMenuRow.label}
-            items={subMenuRow.items}
-          />
         ));
     }
   }
