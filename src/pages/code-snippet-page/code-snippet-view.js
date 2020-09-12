@@ -31,7 +31,7 @@ const codeSnippetText = `function createChildren(style, useInlineStyles) {
     }
   }`;
 
-const CodeSnippetPage = () => {
+const CodeSnippetPage = ({title, description, snippet}) => {
   const [copied, setCopied] = useState();
 
   function handleCopy() {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Styles
 import { Container } from "./sub-menu-style";
@@ -16,7 +16,22 @@ import { ReactComponent as ReactLogo } from "../../assets/images/react-logo.svg"
 import { ReactComponent as VueLogo } from "../../assets/images/vue-logo.svg";
 import { ReactComponent as AngularLogo } from "../../assets/images/angular-logo.svg";
 
+// API
+import useApi from "../../api/useApi";
+
 const SubMenuPage = ({ page }) => {
+  const [{ data, isLoading, isError }, api] = useApi("get");
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  async function getData() {
+    await api(`/snippets/${page}.json`);
+  }
+
+  function formatData() {}
+
   function getLogo() {
     switch (page) {
       case "react":
@@ -72,7 +87,12 @@ const SubMenuPage = ({ page }) => {
   return (
     <Container>
       {getLogo()}
-      {getSubMenuContent()}
+      {data &&
+        Object.entries(data).map((keyName, index) => {
+          return (
+            <SubMenuRow key={index} label={keyName[0]} items={keyName[1]} />
+          );
+        })}
     </Container>
   );
 };
