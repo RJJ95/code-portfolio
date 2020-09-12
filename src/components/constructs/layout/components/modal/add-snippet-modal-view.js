@@ -23,6 +23,7 @@ import LabelledSelect from "../../../labelled-select/labelled-select";
 import LabelledTextarea from "../../../labelled-textarea/labelled-textarea";
 import LabelledTextInput from "../../../labelled-text-input/labelled-text-input";
 import Loader from "../../../../primitives/loader";
+import ErrorMessage from "../../../../primitives/error-message";
 
 // API
 import useApi from "../../../../../api/useApi";
@@ -89,7 +90,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
     "const a = () => console.log('something')"
   );
 
-  const [{ data, isLoading, isError }, doFetch] = useApi("post");
+  const [{ data, isLoading, isError }, api] = useApi("post");
 
   function resetStateVariables() {
     setFramework("");
@@ -101,11 +102,14 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
 
   function createSnippet(e) {
     e.preventDefault();
-    doFetch(`/snippets/${framework}.json`, {
-      description: description,
-      category: category,
+    api(`/snippets/${framework}/${category}.json`, {
       title: title,
+      description: description,
       snippet: snippet,
+    }).then(() => {
+      if (!isError) {
+        setIsOpen(false);
+      }
     });
   }
 
@@ -178,6 +182,7 @@ const AddSnippetModal = ({ modalIsOpen, setIsOpen }) => {
             <Button type="submit" disabled={isLoading}>
               {isLoading ? <Loader /> : "Create snippet"}
             </Button>
+            {isError && <ErrorMessage>Something went wrong</ErrorMessage>}
           </Form>
         </BodyContainer>
       </ModalContainer>

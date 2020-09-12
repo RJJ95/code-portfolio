@@ -5,6 +5,7 @@ export const theme = {
     darkGrey: "#232323",
     mediumGrey: "#302F2F",
     lightGrey: "#545454",
+    red: "FF0000",
   },
   borderRadius: {
     small: "3px",
