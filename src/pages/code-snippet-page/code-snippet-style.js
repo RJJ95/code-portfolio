@@ -23,6 +23,8 @@ export const CodeSnippetContainer = styled.div`
 
 export const CodeSnippet = styled(SyntaxHighlighter)`
   border-radius: ${({ theme }) => theme.borderRadius.medium};
+  width: 600px;
+  min-height: 50px;
 `;
 
 export const CopyIcon = styled(Copy)`
