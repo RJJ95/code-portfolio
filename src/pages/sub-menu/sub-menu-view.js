@@ -8,6 +8,7 @@ import SubMenuRow from "../../components/constructs/sub-menu-row";
 import { ReactComponent as ReactLogo } from "../../assets/images/react-logo.svg";
 import { ReactComponent as VueLogo } from "../../assets/images/vue-logo.svg";
 import { ReactComponent as AngularLogo } from "../../assets/images/angular-logo.svg";
+import LoadingRow from "../../components/constructs/sub-menu-row/components/loading-row";
 
 // API
 import useApi from "../../api/useApi";
@@ -17,7 +18,6 @@ const SubMenuPage = ({ page }) => {
 
   useEffect(() => {
     getData();
-    
   }, [page]);
 
   async function getData() {
@@ -40,17 +40,21 @@ const SubMenuPage = ({ page }) => {
   return (
     <Container>
       {getLogo()}
-      {data &&
-        Object.entries(data).map((keyName, index) => {
-          return (
-            <SubMenuRow
-              key={index}
-              label={keyName[0]}
-              items={keyName[1]}
-              framework={page}
-            />
-          );
-        })}
+      {isLoading ? (
+        <LoadingRow />
+      ) : (
+        <>
+          {data &&
+            Object.entries(data).map((keyName, index) => (
+              <SubMenuRow
+                key={index}
+                label={keyName[0]}
+                items={keyName[1]}
+                framework={page}
+              />
+            ))}
+        </>
+      )}
     </Container>
   );
 };
