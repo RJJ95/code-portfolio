@@ -36,7 +36,7 @@ const useApi = (method) => {
 
   axios.defaults.baseURL = "https://code-portfolio-f44c5.firebaseio.com";
 
-  const fetchData = async (url, data) => {
+  const fetchData = async (url, data = null) => {
     dispatch({ type: "FETCH_INIT" });
 
     try {

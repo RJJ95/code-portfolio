@@ -20,9 +20,9 @@ const SubMenuItemContainer = styled(Link)`
   }
 `;
 
-const SubMenuItem = ({ path, text }) => {
+const SubMenuItem = ({ id, text, category, framework }) => {
   return (
-    <SubMenuItemContainer to={path}>
+    <SubMenuItemContainer to={`/snippets/${framework}/${category}/${id}`}>
       <h3>{text}</h3>
     </SubMenuItemContainer>
   );

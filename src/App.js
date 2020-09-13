@@ -26,13 +26,7 @@ export default function App() {
         <Route exact path={PATHNAMES.REACT}>
           <SubMenuPage page="react" />
         </Route>
-        <Route
-          path={
-            `${PATHNAMES.REACT}/:id` ||
-            `${PATHNAMES.VUE}/:id` ||
-            `${PATHNAMES.ANGULAR}/:id`
-          }
-        >
+        <Route path={`/snippets/:framework/:category/:id`}>
           <CodeSnippetPage />
         </Route>
 

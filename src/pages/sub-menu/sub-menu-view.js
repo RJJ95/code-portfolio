@@ -3,13 +3,6 @@ import React, { useEffect } from "react";
 // Styles
 import { Container } from "./sub-menu-style";
 
-// Content
-import {
-  reactSubMenuContent,
-  vueSubMenuContent,
-  angularSubMenuContent,
-} from "./content";
-
 // Components
 import SubMenuRow from "../../components/constructs/sub-menu-row";
 import { ReactComponent as ReactLogo } from "../../assets/images/react-logo.svg";
@@ -24,6 +17,8 @@ const SubMenuPage = ({ page }) => {
 
   useEffect(() => {
     getData();
+    
+    //eslint-disable-next-line
   }, []);
 
   async function getData() {
@@ -39,9 +34,7 @@ const SubMenuPage = ({ page }) => {
       case "angular":
         return <AngularLogo />;
       default:
-        return reactSubMenuContent.map((subMenuRow) => (
-          <SubMenuRow label={subMenuRow.label} items={subMenuRow.items} />
-        ));
+        break;
     }
   }
 
@@ -51,7 +44,12 @@ const SubMenuPage = ({ page }) => {
       {data &&
         Object.entries(data).map((keyName, index) => {
           return (
-            <SubMenuRow key={index} label={keyName[0]} items={keyName[1]} />
+            <SubMenuRow
+              key={index}
+              label={keyName[0]}
+              items={keyName[1]}
+              framework={page}
+            />
           );
         })}
     </Container>
