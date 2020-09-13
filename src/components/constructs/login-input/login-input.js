@@ -12,7 +12,10 @@ import { ReactComponent as Forward } from "../../../assets/icons/arrow-forward-o
 const ForwardIcon = styled(Forward)`
   width: 20px;
   height: 20px;
-  fill: ${({ theme }) => theme.colors.mediumGrey};
+  fill: ${({ theme }) => theme.colors.darkGrey};
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
 `;
 
 const Label = styled.label`
@@ -33,11 +36,10 @@ const ContinueButton = styled.button`
   border: none;
   background-color: ${({ theme }) => theme.colors.lightGrey};
   box-shadow: ${({ theme }) => theme.shadows.medium};
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   outline: none;
+  z-index: 1;
+  position: relative;
 `;
 
 const LoginInput = ({ label, type, value, onChange, onClick, fadeOut }) => {

@@ -18,6 +18,8 @@ const SubMenuPage = ({ page }) => {
 
   useEffect(() => {
     getData();
+
+    // eslint-disable-next-line
   }, [page]);
 
   async function getData() {
@@ -55,7 +57,8 @@ const SubMenuPage = ({ page }) => {
             ))
           ) : (
             <NoDataHeader>
-              No code snippets for this framework yet! Login and create the first one.
+              No code snippets for this framework yet! Login and create the
+              first one.
             </NoDataHeader>
           )}
         </>
