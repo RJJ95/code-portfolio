@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // Styles
-import { Container } from "./sub-menu-style";
+import { Container, NoDataHeader } from "./sub-menu-style";
 
 // Components
 import SubMenuRow from "../../components/constructs/sub-menu-row";
@@ -14,7 +14,7 @@ import LoadingRow from "../../components/constructs/sub-menu-row/components/load
 import useApi from "../../api/useApi";
 
 const SubMenuPage = ({ page }) => {
-  const [{ data, isLoading, isError }, api] = useApi("get");
+  const [{ data, isLoading }, api] = useApi("get");
 
   useEffect(() => {
     getData();
@@ -44,7 +44,7 @@ const SubMenuPage = ({ page }) => {
         <LoadingRow />
       ) : (
         <>
-          {data &&
+          {data ? (
             Object.entries(data).map((keyName, index) => (
               <SubMenuRow
                 key={index}
@@ -52,7 +52,12 @@ const SubMenuPage = ({ page }) => {
                 items={keyName[1]}
                 framework={page}
               />
-            ))}
+            ))
+          ) : (
+            <NoDataHeader>
+              No code snippets for this framework yet! Login and create the first one.
+            </NoDataHeader>
+          )}
         </>
       )}
     </Container>

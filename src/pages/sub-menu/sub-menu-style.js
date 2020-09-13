@@ -13,3 +13,10 @@ export const Container = styled(Column)`
     margin-bottom: 40px;
   }
 `;
+
+export const NoDataHeader = styled.h1`
+  margin-top: 100px;
+  margin-left: 200px;
+  width: 700px;
+  text-align: center;
+`;
