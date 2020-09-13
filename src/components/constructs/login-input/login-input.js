@@ -7,6 +7,7 @@ import { fadeOutLeft } from "../../../config/animations";
 // Components
 import { Column } from "../../primitives/column";
 import { ReactComponent as Forward } from "../../../assets/icons/arrow-forward-outline.svg";
+import ErrorMessage from "../../primitives/error-message";
 
 const ForwardIcon = styled(Forward)`
   width: 20px;
@@ -34,18 +35,24 @@ const ContinueButton = styled.button`
   position: relative;
 `;
 
-const LoginInput = ({ label, type, value, onChange, onSubmit, fadeOut }) => {
-  return (
-    <AnimatedColumn fadeOut={fadeOut}>
-      <label>{label}</label>
-      <form onSubmit={onSubmit}>
-        <input type={type} value={value} onChange={onChange} required/>
-        <ContinueButton type="submit">
-          <ForwardIcon />
-        </ContinueButton>
-      </form>
-    </AnimatedColumn>
-  );
-};
-
+const LoginInput = ({
+  label,
+  type,
+  value,
+  onChange,
+  onSubmit,
+  fadeOut,
+  error,
+}) => (
+  <AnimatedColumn fadeOut={fadeOut}>
+    <label>{label}</label>
+    <form onSubmit={onSubmit}>
+      <input type={type} value={value} onChange={onChange} required />
+      <ContinueButton type="submit">
+        <ForwardIcon />
+      </ContinueButton>
+      {error && <ErrorMessage>Invalid credentials!</ErrorMessage>}
+    </form>
+  </AnimatedColumn>
+);
 export default LoginInput;

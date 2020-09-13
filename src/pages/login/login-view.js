@@ -16,26 +16,34 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [userNameFade, setUserNameFade] = useState(false);
-
   const [userNameSuccess, setUserNameSuccess] = useState(false);
+  const [userNameError, setUserNameError] = useState(false);
+
+  const [passwordError, setPasswordError] = useState(false);
 
   let history = useHistory();
 
   function handleUserNameSubmit(e) {
     e.preventDefault();
     if (userName === "ricardo") {
+      setPasswordError(false);
       setUserNameFade(true);
       setTimeout(() => {
         setUserNameSuccess(true);
       }, 1100);
+    } else {
+      setUserNameError(true);
     }
   }
 
   function handlePasswordSubmit(e) {
     e.preventDefault();
-    if (password === "blabla") {
-      localStorage.setItem("login", true);
+    if (password === "ricardo") {
+      localStorage.setItem("authenticated", true);
+      setPasswordError(false);
       history.push(PATHNAMES.HOME);
+    } else {
+      setPasswordError(true);
     }
   }
 
@@ -50,6 +58,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             onSubmit={handlePasswordSubmit}
             value={password}
+            error={passwordError}
           />
         ) : (
           <LoginInput
@@ -59,6 +68,7 @@ const Login = () => {
             onChange={(e) => setUserName(e.target.value)}
             onSubmit={handleUserNameSubmit}
             value={userName}
+            error={userNameError}
           />
         )}
       </Container>

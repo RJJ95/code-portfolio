@@ -37,7 +37,9 @@ const MenuItems = ({ menuItems, handleClick }) => {
           />
         ))}
       </Column>
-      <AddIcon onClick={handleClick} />
+      {localStorage.getItem("authenticated") && (
+        <AddIcon onClick={handleClick} />
+      )}
     </Container>
   );
 };
