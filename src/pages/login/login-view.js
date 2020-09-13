@@ -21,7 +21,8 @@ const Login = () => {
 
   let history = useHistory();
 
-  function handleUserNameSubmit() {
+  function handleUserNameSubmit(e) {
+    e.preventDefault();
     if (userName === "ricardo") {
       setUserNameFade(true);
       setTimeout(() => {
@@ -30,7 +31,8 @@ const Login = () => {
     }
   }
 
-  function handlePasswordSubmit() {
+  function handlePasswordSubmit(e) {
+    e.preventDefault();
     if (password === "blabla") {
       localStorage.setItem("login", true);
       history.push(PATHNAMES.HOME);
@@ -46,7 +48,7 @@ const Login = () => {
             label="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
-            onClick={() => handlePasswordSubmit()}
+            onSubmit={handlePasswordSubmit}
             value={password}
           />
         ) : (
@@ -55,7 +57,7 @@ const Login = () => {
             type="text"
             fadeOut={userNameFade}
             onChange={(e) => setUserName(e.target.value)}
-            onClick={() => handleUserNameSubmit()}
+            onSubmit={handleUserNameSubmit}
             value={userName}
           />
         )}
