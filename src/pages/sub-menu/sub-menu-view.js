@@ -18,8 +18,7 @@ const SubMenuPage = ({ page }) => {
   useEffect(() => {
     getData();
     
-    //eslint-disable-next-line
-  }, []);
+  }, [page]);
 
   async function getData() {
     await api(`/snippets/${page}.json`);
