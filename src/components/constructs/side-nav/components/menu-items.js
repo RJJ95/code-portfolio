@@ -24,24 +24,19 @@ const AddIcon = styled(Add)`
   }
 `;
 
-const MenuItems = ({ menuItems, handleClick }) => {
-  return (
-    <Container>
-      <Column>
-        {menuItems.map((item, index) => (
-          <MenuItem
-            key={index}
-            path={item.path}
-            logo={item.logo}
-            menuItemText={item.menuItemText}
-          />
-        ))}
-      </Column>
-      {localStorage.getItem("authenticated") && (
-        <AddIcon onClick={handleClick} />
-      )}
-    </Container>
-  );
-};
-
+const MenuItems = ({ menuItems, handleClick }) => (
+  <Container>
+    <Column>
+      {menuItems.map((item, index) => (
+        <MenuItem
+          key={index}
+          path={item.path}
+          logo={item.logo}
+          menuItemText={item.menuItemText}
+        />
+      ))}
+    </Column>
+    {localStorage.getItem("authenticated") && <AddIcon onClick={handleClick} />}
+  </Container>
+);
 export default MenuItems;
