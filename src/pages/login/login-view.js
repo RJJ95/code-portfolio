@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 // Components
@@ -17,34 +18,32 @@ const Login = () => {
 
   const [userNameFade, setUserNameFade] = useState(false);
   const [userNameSuccess, setUserNameSuccess] = useState(false);
-  const [userNameError, setUserNameError] = useState(false);
-
-  const [passwordError, setPasswordError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   let history = useHistory();
 
   function handleUserNameSubmit(e) {
     e.preventDefault();
-    if (userName === "ricardo") {
-      setPasswordError(false);
-      setUserNameFade(true);
-      setTimeout(() => {
-        setUserNameSuccess(true);
-      }, 1100);
-    } else {
-      setUserNameError(true);
-    }
+    setUserNameFade(true);
+    setTimeout(() => {
+      setUserNameSuccess(true);
+    }, 1100);
   }
 
   function handlePasswordSubmit(e) {
     e.preventDefault();
-    if (password === "ricardo") {
-      localStorage.setItem("authenticated", true);
-      setPasswordError(false);
-      history.push(PATHNAMES.HOME);
-    } else {
-      setPasswordError(true);
-    }
+    axios
+      .post(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCR5Z7Asy-cOU7S_oDGXvmZIB67c4PQ8pU",
+        { email: userName, password: password, returnSecureToken: true }
+      )
+      .then((result) => {
+        localStorage.setItem("authenticated", true);
+        history.push(PATHNAMES.HOME);
+      })
+      .catch(() => {
+        setLoginError(true);
+      });
   }
 
   return (
@@ -58,7 +57,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             onSubmit={handlePasswordSubmit}
             value={password}
-            error={passwordError}
+            error={loginError}
           />
         ) : (
           <LoginInput
@@ -68,7 +67,6 @@ const Login = () => {
             onChange={(e) => setUserName(e.target.value)}
             onSubmit={handleUserNameSubmit}
             value={userName}
-            error={userNameError}
           />
         )}
       </Container>
