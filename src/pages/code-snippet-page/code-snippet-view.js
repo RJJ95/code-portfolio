@@ -23,7 +23,7 @@ const CodeSnippetPage = () => {
   const [copied, setCopied] = useState();
 
   let { id, category, framework } = useParams();
-  const [{ data, isLoading, isError }, api] = useApi("get");
+  const [{ data, isLoading }, api] = useApi("get");
 
   useEffect(() => {
     getSnippet();

@@ -3,6 +3,7 @@ import React from "react";
 import { Column } from "../../primitives/column";
 
 const LabelledTextInput = ({
+  type,
   label,
   value,
   onChange,
@@ -12,7 +13,7 @@ const LabelledTextInput = ({
   <Column>
     <label>{label}</label>
     <input
-      type="text"
+      type={type}
       value={value}
       onChange={onChange}
       placeholder={placeholder}

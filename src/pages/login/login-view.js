@@ -3,8 +3,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 // Components
-import LoginInput from "../../components/constructs/login-input/login-input";
 import { Column } from "../../components/primitives/column";
+import Form from "../../components/constructs/form";
 
 // Config
 import { PATHNAMES } from "../../config/pathnames";
@@ -13,36 +13,42 @@ import { PATHNAMES } from "../../config/pathnames";
 import { Container, H1 } from "./login-style";
 
 const Login = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const [userNameFade, setUserNameFade] = useState(false);
-  const [userNameSuccess, setUserNameSuccess] = useState(false);
-  const [loginError, setLoginError] = useState(false);
+  const [error, setError] = useState(false);
 
   let history = useHistory();
 
-  function handleUserNameSubmit(e) {
-    e.preventDefault();
-    setUserNameFade(true);
-    setTimeout(() => {
-      setUserNameSuccess(true);
-    }, 1100);
-  }
+  const inputOptions = [
+    {
+      label: "username",
+      type: "text",
+      required: true,
+      value: username,
+      onChange: (e) => setUsername(e.target.value),
+    },
+    {
+      label: "password",
+      type: "password",
+      required: true,
+      value: password,
+      onChange: (e) => setPassword(e.target.value),
+    },
+  ];
 
-  function handlePasswordSubmit(e) {
+  function handleLogin(e) {
     e.preventDefault();
     axios
       .post(
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCR5Z7Asy-cOU7S_oDGXvmZIB67c4PQ8pU",
-        { email: userName, password: password, returnSecureToken: true }
+        { email: username, password: password, returnSecureToken: true }
       )
       .then((result) => {
-        localStorage.setItem("authenticated", true);
+        localStorage.setItem("token", result.data.idToken);
         history.push(PATHNAMES.HOME);
       })
       .catch(() => {
-        setLoginError(true);
+        setError("Something went wrong! Not going to tell you what tho..");
       });
   }
 
@@ -50,25 +56,12 @@ const Login = () => {
     <Column>
       <H1>mycode</H1>
       <Container>
-        {userNameSuccess ? (
-          <LoginInput
-            label="Password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            onSubmit={handlePasswordSubmit}
-            value={password}
-            error={loginError}
-          />
-        ) : (
-          <LoginInput
-            label="Username"
-            type="text"
-            fadeOut={userNameFade}
-            onChange={(e) => setUserName(e.target.value)}
-            onSubmit={handleUserNameSubmit}
-            value={userName}
-          />
-        )}
+        <Form
+          inputOptions={inputOptions}
+          onSubmit={handleLogin}
+          submitButtonText="Login"
+          error={error}
+        />
       </Container>
     </Column>
   );

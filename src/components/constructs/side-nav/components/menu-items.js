@@ -36,7 +36,7 @@ const MenuItems = ({ menuItems, handleClick }) => (
         />
       ))}
     </Column>
-    {localStorage.getItem("authenticated") && <AddIcon onClick={handleClick} />}
+    {localStorage.getItem("token") && <AddIcon onClick={handleClick} />}
   </Container>
 );
 export default MenuItems;
