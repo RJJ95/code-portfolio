@@ -7,7 +7,6 @@ export const SideNavContainer = styled(Column)`
   position: sticky;
   top: 0;
   height: 100vh;
-  width: 14vw;
 `;
 
 export const SideNavHeader = styled.h2`

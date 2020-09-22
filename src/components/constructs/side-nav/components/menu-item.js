@@ -8,6 +8,7 @@ const MenuLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
   padding-left: 15px;
+  padding-right: 30px;
   align-items: center;
   height: 60px;
 
